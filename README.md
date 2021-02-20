@@ -18,8 +18,6 @@ Here are some more details:
 - The search bar updates the filtering whenever its text is changed - if a todo does not contain the text as a substring then it is not rendered in the list
 - At this state of the project, do not worry about styling at all (that will be the next stage!)--for now, it's most important that you nail down the basics of data flow and state management in React. Also, if you have any ideas for additional functionality that you want to add, please go ahead!! You do not have to conform to the example app in any meaningful way besides implementing a Todo list.
 
-Here's the task: in the file `DESIGN.md`, write a few paragraphs describing the component structure of your app and how data will transfer between those components. Diagrams are encouraged!
-
 #### How to Plan
 
 You might find [Thinking in React](https://reactjs.org/docs/thinking-in-react.html) to be a helpful example. That page uses React Classes to build components, which are an old way of managing state in React. Don't worry about emulating that specifically, just follow along with the process and use the methods we've learned in lecture.
@@ -43,34 +41,17 @@ Regardless of your background in React, we can break down this task. Let's outli
 
 Now that we've learned how to use Styled Components, lets build some basic components that we'll use in our Personal Assistant. To help us in the development process, we're going to use Storybook, a development tool which can help us view components in isolation and in different states.
 
-I've included one example component under `/src/ExampleComponent`, which you can use as a template when creating new components. Once you've made these components, you can add new instances of them to Storybook in `/stories/index.js` and run `npm run storybook` to check them out in the browser!
+I've included one example component under `/src/ExampleComponent`, which you can use as a template when creating new components. 
 
-Start by building the components that you planned this morning. Try passing test data to your components and make sure they work correctly in all states (e.g. write a fake list of todos and pass it to your todo list component). Don't worry yet about the actual functionality of the components--we'll get to that tomorrow. For now, just make sure everything looks as you want it. If you finish building the components separately, try putting them together in a new component for the entire Todos page, then add this entire component in App.js.
+Start by building the components that you planned. Try passing test data to your components and make sure they work correctly in all states (e.g. write a fake list of todos and pass it to your todo list component).
 
 **Stretch Task:** Make your components fully responsive using media queries! Also try adding hover states and transitions.
 
 ### Adding Functionality
 
-With the help of state, we can finally store and manage our Todos dynamically. If you haven't yet, put together the components from yesterday into a new component for the whole todos page and add it to App.js. Now, use useReducer to implement the todos state and useState and track any inputs you've made.
+With the help of state, we can finally store and manage our Todos dynamically. Now, use useReducer (or useState) to implement the todos state and useState and track any inputs you've made.
 
 **Stretch Task:** Abstract your Todo state management with the Context API. React Context will allow you to access the same state across multiple pages--essentially anywhere in your App. This is quite difficult. Here's a [good article](https://www.taniarascia.com/using-context-api-in-react/) to get you started. Instead of passing that 'user' object, as is done in the example, pass the state and setState variables returned by useReducer.
-
-### Greeting Page
-
-Our personal assistant is still pretty basic, and I don't want to be immediately confronted with all the stuff I have to do, set let's add a greeting! We'll create a new page with some nice text to say hello and give us the current weather with an API. Start by creating a new page component and outlining how it should work. Use this URL with a call to fetch to access the weather API: `https://api.openweathermap.org/data/2.5/weather?lat=<LATITUDE>&lon=<LONGITUDE>&appid=db5bbba816b58757082ce2230c7754a6&units=imperial`. Of course, you'll need to replace `<LATITUDE>` and `<LONGITUDE>` with the user's latitude and longitude. Check out the [Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API/Using_the_Geolocation_API#Getting_the_current_position) for this.
-
-**Stretch Task:** Create a bar at the top to navigate between pages. It won't work until we discuss navigation tomorrow, but it's good to have.
-
-**Stretch Task 2:** Memoize your todo list items for better performance. You probably won't notice a difference for an app this small, but it's good practice!
-
-### Putting it all together
-
-So we have all of the pieces of out Personal Assistant app, now let's put it together with some navigation! Add a BrowserRouter to your App.js and set up routes for the pages you've made so far. If you haven't already, build a Navbar and add `<Link>` components to actually navigate across your app.
-
-
-**Stretch Task:** Use the [localStorage API](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) to persist your Todo state across reloads. LocalStorage only stores strings, so to store your todos you'll have to call `JSON.stringify()` and `JSON.parse()`. This will make your web app save your Todos, so every time your revisit your app (if you host it, see below), you'll get the same Todos!
-**Stretch Task 2:** Add another page accessed by clicking on a todo that holds details about that specific TODO.
-
 
 ### Deployment
 
