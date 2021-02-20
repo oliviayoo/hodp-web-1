@@ -1,20 +1,11 @@
 # Personal Assistant™ Web App
 
-Over the next few days we'll be learning all about React. To apply what we'll learn, you're going to build a Personal Assistant to help manage your Todos.
-
 To run the App, first install the required dependencies with `npm i`. Then, just type `npm run dev` into the terminal, and then go to [http://localhost:3000](http://localhost:3000) to view it in the browser. To get linting working, make sure you open VSCode with the personal-assistant folder at the top level (`code personal-assistant`), and work from there.
 
-**JUMP TO EXERCISES**
-- [Day 2 AM](#day-2-am-app-planning)
-- [Day 2 PM](#day-2-pm-styling)
-- [Day 3 AM](#day-3-am-adding-functionality)
-- [Day 3 PM](#day-3-pm-greeting-page)
-- [Day 4 AM](#day-4-am-putting-it-together)
-- [Deployment](#deployment)
 
-### Day 2 AM: App Planning
+### App Planning
 
-Before we start coding, we should plan out how we want our app to look. An example Personal Assistant is up [here!](https://pkpbynum.github.io/personal-assistant-example/) For now, however, think about implementing only the Todos page with the following functionality:
+Before we start coding, we should plan out how we want our app to look. For now, however, think about implementing only the Todos page with the following functionality:
 
 1. Keep a list of todos (just a simple string description)
 2. Add todos to a list
@@ -48,7 +39,7 @@ Regardless of your background in React, we can break down this task. Let's outli
 
 **Stretch Task:** Get started using real React components! Try rebuilding a page of your Personal website with React. You can just work directly off of the component in App.js. Run `npm run dev` to see the app in your browser.
 
-### Day 2 PM: Styling
+### Styling
 
 Now that we've learned how to use Styled Components, lets build some basic components that we'll use in our Personal Assistant. To help us in the development process, we're going to use Storybook, a development tool which can help us view components in isolation and in different states.
 
@@ -58,13 +49,13 @@ Start by building the components that you planned this morning. Try passing test
 
 **Stretch Task:** Make your components fully responsive using media queries! Also try adding hover states and transitions.
 
-### Day 3 AM: Adding Functionality
+### Adding Functionality
 
 With the help of state, we can finally store and manage our Todos dynamically. If you haven't yet, put together the components from yesterday into a new component for the whole todos page and add it to App.js. Now, use useReducer to implement the todos state and useState and track any inputs you've made.
 
 **Stretch Task:** Abstract your Todo state management with the Context API. React Context will allow you to access the same state across multiple pages--essentially anywhere in your App. This is quite difficult. Here's a [good article](https://www.taniarascia.com/using-context-api-in-react/) to get you started. Instead of passing that 'user' object, as is done in the example, pass the state and setState variables returned by useReducer.
 
-### Day 3 PM: Greeting Page
+### Greeting Page
 
 Our personal assistant is still pretty basic, and I don't want to be immediately confronted with all the stuff I have to do, set let's add a greeting! We'll create a new page with some nice text to say hello and give us the current weather with an API. Start by creating a new page component and outlining how it should work. Use this URL with a call to fetch to access the weather API: `https://api.openweathermap.org/data/2.5/weather?lat=<LATITUDE>&lon=<LONGITUDE>&appid=db5bbba816b58757082ce2230c7754a6&units=imperial`. Of course, you'll need to replace `<LATITUDE>` and `<LONGITUDE>` with the user's latitude and longitude. Check out the [Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API/Using_the_Geolocation_API#Getting_the_current_position) for this.
 
@@ -72,7 +63,7 @@ Our personal assistant is still pretty basic, and I don't want to be immediately
 
 **Stretch Task 2:** Memoize your todo list items for better performance. You probably won't notice a difference for an app this small, but it's good practice!
 
-### Day 4 AM: Putting it all together
+### Putting it all together
 
 So we have all of the pieces of out Personal Assistant app, now let's put it together with some navigation! Add a BrowserRouter to your App.js and set up routes for the pages you've made so far. If you haven't already, build a Navbar and add `<Link>` components to actually navigate across your app.
 
@@ -90,5 +81,5 @@ If you want to deploy your app to Github Pages, follow the steps below:
 git init
 git remote add origin <YOUR_REPO_URL>
 ```
-3. Also in your app, in your package.json file there should be a "hompage" attribute. Format it with your credentials, replacing `<GITHUB_USERNAME>` and `<APP_NAME>`. In my case, it looked like `"homepage": "http://pkpbynum.github.io/personal-assistant-example"`.
+3. Also in your app, in your package.json file there should be a "hompage" attribute. Format it with your credentials, replacing `<GITHUB_USERNAME>` and `<APP_NAME>`. In my case, it looked like `"homepage": "http://CharlesOnesti.github.io/hodp-web-1"`.
 4. You should now be able to publish a production version of your app to that repository by simply typing `npm run deploy`. This might take a minute to finish, but the output should give you the URL to your new personal assistant web app! Try adding it as the home page of your browser to be greeted every time you go online!
